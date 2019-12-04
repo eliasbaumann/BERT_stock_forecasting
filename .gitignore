@@ -7,3 +7,29 @@ FinancialPhraseBank-v1.0/Sentences_75Agree.txt
 FinancialPhraseBank-v1.0/Sentences_AllAgree.txt
 __pycache__/data.cpython-36.pyc
 all_upto_2019-08-29.csv
+Data/AAPL_daily.csv
+Data/fama5.csv
+Data/LIBOR USD.csv
+Data/USDX.csv
+Data/FiQA_ABSA_task1/Readme.pdf
+Data/FiQA_ABSA_task1/task1_headline_ABSA_train.json
+Data/FiQA_ABSA_task1/task1_post_ABSA_train.json
+Data/FiQA_train_task2/FiQA_train_doc_final.tsv
+Data/FiQA_train_task2/FiQA_train_question_doc_final.tsv
+Data/FiQA_train_task2/FiQA_train_question_final.tsv
+Data/FiQA_train_task2/Readme_task2.pdf
+Data/FinancialPhraseBank-v1.0/License.txt
+Data/FinancialPhraseBank-v1.0/README.txt
+Data/FinancialPhraseBank-v1.0/Sentences_50Agree.txt
+Data/FinancialPhraseBank-v1.0/Sentences_66Agree.txt
+Data/FinancialPhraseBank-v1.0/Sentences_75Agree.txt
+Data/FinancialPhraseBank-v1.0/Sentences_AllAgree.txt
+__pycache__/preprocessing.cpython-36.pyc
+Pre-processing NASDAQ news .ipynb
+__pycache__/bert_model.cpython-36.pyc
+Data/lexicon/__pycache__/TXTfpblexical.cpython-36.pyc
+Data/lexicon/__pycache__/__init__.cpython-36.pyc
+Data/__pycache__/__init__.cpython-36.pyc
+.vscode/launch.json
+__pycache__/baselines.cpython-36.pyc
+__pycache__/prediction.cpython-36.pyc

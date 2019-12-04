@@ -3,9 +3,10 @@ from pytorch_pretrained_bert.modeling import BertConfig, BertForSequenceClassifi
 from sklearn.model_selection import train_test_split
 from functools import partial
 import fastai
+import fastai.text
 import pandas as pd
 import torch
-
+#from fastai.text import BaseTokenizer
 
 class FastAiBertTokenizer(fastai.text.BaseTokenizer):
     """Wrapper around BertTokenizer to be compatible with fast.ai"""
@@ -21,10 +22,11 @@ class FastAiBertTokenizer(fastai.text.BaseTokenizer):
         return ["[CLS]"] + self._pretrained_tokenizer.tokenize(t)[:self.max_seq_len - 2] + ["[SEP]"]
 
 def train_bert(path):
-    # TODO i need files
     train = pd.read_csv(path+'Sentences_AllAgree_preprocessed.csv')
     test = pd.read_csv(path+'pre_processed_aapl_sentences.csv', index_col=None, engine='python')
     test.dropna(inplace=True)
+    test2 = pd.DataFrame(test['text'])
+    test2.columns = ['sentence']
     train_1, val = train_test_split(train, shuffle=True, test_size=0.2, random_state=42)
 
     bert_tok = BertTokenizer.from_pretrained("bert-base-uncased",)
@@ -32,7 +34,8 @@ def train_bert(path):
     fastai_tokenizer = fastai.text.Tokenizer(tok_func=FastAiBertTokenizer(bert_tok, max_seq_len=256), pre_rules=[], post_rules=[])
     label_cols = ["label_negative","label_neutral","label_positive"]
 
-    databunch_1 = fastai.text.TextDataBunch.from_df(".", train, val,
+    databunch_1 = fastai.text.TextDataBunch.from_df(".", train_1, val,
+                                                    test_df=test2,
                                                     tokenizer=fastai_tokenizer,
                                                     vocab=fastai_bert_vocab,
                                                     include_bos=False,
@@ -47,7 +50,7 @@ def train_bert(path):
                                   bert_model_class,
                                   loss_func=torch.nn.BCEWithLogitsLoss(),
                                   model_dir=path+'temp/model',
-                                  metrics=partial(fastai.text.accuracy_thresh, tresh=.25)
+                                  metrics=partial(fastai.text.accuracy_thresh, thresh=.25)
                                   )
     def bert_class_split(model):
         embedder = model.bert.embeddings
@@ -59,10 +62,11 @@ def train_bert(path):
     x = bert_class_split(bert_model_class)
     learner.split([x[0], x[1], x[2], x[3], x[5]])
     learner.fit_one_cycle(2, slice(5e-6, 5e-5), moms=(0.8,0.7), pct_start=0.2, wd =(1e-7, 1e-5, 1e-4, 1e-3,1e-1))
-
-    test['pred'] = test['Text'].apply(lambda x: learner.predict(x)[1].tolist())
-    test["pred_proba"] = test["Text"].apply(lambda x: learner.predict(x)[2].tolist())
-    # TODO maybe i am missing something here...
-    test.to_csv(path+'results_aapl_4.csv')
+    preds = learner.get_preds(ds_type=fastai.basic_data.DatasetType.Test)
+    test_res = pd.DataFrame(preds[0].tolist()) # list of tensors (maybe.tolist())
+    #test['pred'] = test['text'].apply(lambda x: learner.predict(x)[1].tolist())
+    #test["pred_proba"] = test["text"].apply(lambda x: learner.predict(x)[2].tolist())
+    test_res.to_csv(path+'bert_aapl.csv')
+    return test_res
     
 
