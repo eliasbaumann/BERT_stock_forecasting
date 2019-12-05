@@ -1,6 +1,6 @@
-from preprocessing import pre_process_news, pre_process_pb, pre_process_vars
-from bert_model import train_bert
-from prediction import process_res
+# from preprocessing import pre_process_news, pre_process_pb, pre_process_vars
+# from bert_model import train_bert
+from prediction import process_res, predict
 
 
 if __name__ == "__main__":
@@ -9,5 +9,5 @@ if __name__ == "__main__":
     # pre_process_news(path)
     # pre_process_vars(path)
     # train_bert(path)
-    #res1 =  tfidf_svm(path)
-    process_res(path)
+    data = process_res(path)
+    predict(data)

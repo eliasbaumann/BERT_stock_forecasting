@@ -63,10 +63,14 @@ def train_bert(path):
     learner.split([x[0], x[1], x[2], x[3], x[5]])
     learner.fit_one_cycle(2, slice(5e-6, 5e-5), moms=(0.8,0.7), pct_start=0.2, wd =(1e-7, 1e-5, 1e-4, 1e-3,1e-1))
     preds = learner.get_preds(ds_type=fastai.basic_data.DatasetType.Test)
-    test_res = pd.DataFrame(preds[0].tolist()) # list of tensors (maybe.tolist())
-    #test['pred'] = test['text'].apply(lambda x: learner.predict(x)[1].tolist())
-    #test["pred_proba"] = test["text"].apply(lambda x: learner.predict(x)[2].tolist())
-    test_res.to_csv(path+'bert_aapl.csv')
-    return test_res
+    test_res = pd.DataFrame(preds[0].tolist())
+    test = pd.concat([test,test_res],axis=1) 
+    test = test[['article_time','text',0,1,2]]
+    tmp = pd.get_dummies(test[[0,1,2]].idxmax(axis=1))
+    tmp.columns = ['neg','neut','pos']
+    test.columns = ['article_time','text', 'neg_prob','neut_prob','pos_prob']
+    test = pd.concat([test,tmp],axis=1)
+    test.to_csv(path+'aapl_bert.csv')
+    return test
     
 
