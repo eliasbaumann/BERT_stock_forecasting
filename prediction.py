@@ -3,6 +3,7 @@ import numpy as np
 import tensorflow as tf
 
 from sklearn.preprocessing import MinMaxScaler
+from statsmodels.stats.stattools import durbin_watson
 from statsmodels.tsa.api import VAR
 from statsmodels.tsa.stattools import grangercausalitytests, adfuller
 from statsmodels.tsa.vector_ar.vecm import coint_johansen
@@ -155,16 +156,36 @@ def adfuller_test(series, signif=0.05, name='', verbose=False):
         print(f" => Series is Non-Stationary.")  
 
 
+def get_durbin_watson(cols, model):
+    """
+    Check for Serial Correlation of Residuals (Errors)
+    """
+    out = durbin_watson(model.resid)
+    for col, val in zip(cols, out):
+        print(col, ':', round(val, 2))
+
 def predict_var(data):
     data.drop(['risk_premium'], axis=1, inplace=True) #TODO We need to drop a variable to create a VAR model
     data = diff_n_times(data, 1)
     subsets = create_subsets_nolag(data)
     for j in subsets: 
-        x_train, x_test, y_train, y_test = train_test_split(j[0],j[1],test_size=0.2, random_state=42)
-        train = np.concatenate((x_train,np.expand_dims(y_train,1)),axis=1)
-        test = np.concatenate((x_test,np.expand_dims(y_test,1)),axis=1)
+        cmb = np.concatenate((j[0],np.expand_dims(j[1],1)),axis=1)
+        nobs = 10
+        train = cmb[:-nobs]
+        valid = cmb[-nobs:]
+        # x_train, x_test, y_train, y_test = train_test_split(j[0],j[1],test_size=0.2, random_state=42)
+        # train = np.concatenate((x_train,np.expand_dims(y_train,1)),axis=1)
+        # train = pd.DataFrame(train, columns=list(j[0].columns)+['log_return'])
+        # test = np.concatenate((x_test,np.expand_dims(y_test,1)),axis=1)
         model = VAR(train)
         results = model.fit(2)
-        print(results.summary())
+        #print(results.summary())
+        file1 = open("var_res.txt","w")
+        file1.write(str(results.summary()))
+        file1.close()
+        get_durbin_watson(list(j[0].columns)+['log_return'], results)
+        pred = results.forecast(train[-2:], nobs)
+        # TODO these results now have to be compared to actual and we are done :)
+        print(pred)
 
     
