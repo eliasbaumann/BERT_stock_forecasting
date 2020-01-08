@@ -33,3 +33,15 @@ Data/__pycache__/__init__.cpython-36.pyc
 .vscode/launch.json
 __pycache__/baselines.cpython-36.pyc
 __pycache__/prediction.cpython-36.pyc
+Data/aapl_bert.csv
+Data/aapl_lex.csv
+Data/aapl_svm.csv
+Data/pre_processed_aapl_sentences.csv
+Data/Sentences_AllAgree_preprocessed_baseline.csv
+Data/Sentences_AllAgree_preprocessed.csv
+Data/lexicon/labelled_sentences_malo_dict.csv
+Data/lexicon/financial_phrase_bank/lem_Sentences_66Agree.p
+Data/lexicon/lexica/bl_negative.csv
+Data/lexicon/lexica/bl_positive.csv
+Data/lexicon/lexica/lm_negative.csv
+Data/lexicon/lexica/lm_positive.csv

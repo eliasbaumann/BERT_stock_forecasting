@@ -1,6 +1,6 @@
 # from preprocessing import pre_process_news, pre_process_pb, pre_process_vars
 # from bert_model import train_bert
-from prediction import process_res, predict
+from prediction import process_res, predict, predict_var, eval_for_var
 
 
 if __name__ == "__main__":
@@ -9,5 +9,7 @@ if __name__ == "__main__":
     # pre_process_news(path)
     # pre_process_vars(path)
     # train_bert(path)
-    data = process_res(path)
-    predict(data)
+    data = process_res(path, inc_lag=False)
+    #predict(data)
+    eval_for_var(data)
+    # predict_var(data)
