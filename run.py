@@ -10,6 +10,6 @@ if __name__ == "__main__":
     # pre_process_vars(path)
     # train_bert(path)
     data = process_res(path, inc_lag=False)
-    # predict(data)
+    predict(data, pred_ind=True)
     # eval_for_var(data)
-    predict_var(data)
+    # predict_var(data)

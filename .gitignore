@@ -45,3 +45,4 @@ Data/lexicon/lexica/bl_negative.csv
 Data/lexicon/lexica/bl_positive.csv
 Data/lexicon/lexica/lm_negative.csv
 Data/lexicon/lexica/lm_positive.csv
+ignore.py
