@@ -7,10 +7,6 @@ FinancialPhraseBank-v1.0/Sentences_75Agree.txt
 FinancialPhraseBank-v1.0/Sentences_AllAgree.txt
 __pycache__/data.cpython-36.pyc
 all_upto_2019-08-29.csv
-Data/AAPL_daily.csv
-Data/fama5.csv
-Data/LIBOR USD.csv
-Data/USDX.csv
 Data/FiQA_ABSA_task1/Readme.pdf
 Data/FiQA_ABSA_task1/task1_headline_ABSA_train.json
 Data/FiQA_ABSA_task1/task1_post_ABSA_train.json
@@ -41,8 +37,6 @@ Data/Sentences_AllAgree_preprocessed_baseline.csv
 Data/Sentences_AllAgree_preprocessed.csv
 Data/lexicon/labelled_sentences_malo_dict.csv
 Data/lexicon/financial_phrase_bank/lem_Sentences_66Agree.p
-Data/lexicon/lexica/bl_negative.csv
-Data/lexicon/lexica/bl_positive.csv
 Data/lexicon/lexica/lm_negative.csv
 Data/lexicon/lexica/lm_positive.csv
 ignore.py

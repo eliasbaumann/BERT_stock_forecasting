@@ -147,30 +147,6 @@ def predict_sentences(data, path):
     negat_dct = ["n't", "not", "never", "no", "neither", "nor", "none"]
     lngram = 7
 
-    # # negative dictionary (LM)
-    # neg_dct = ""
-    # with io.open("lm_negative.csv", "r", encoding = "utf-8", errors = "ignore") as infile:
-    #     for line in infile:
-    #         neg_dct = neg_dct + line
-
-    # neg_dct = neg_dct.split("\n")
-    # neg_dct = [e.lower() for e in neg_dct]
-
-
-    # # positive dictionary (LM)
-    # pos_dct = ""
-    # with io.open("lm_positive.csv", "r", encoding = "utf-8", errors = "ignore") as infile:
-    #     for line in infile:
-    #         pos_dct = pos_dct + line
-
-    # pos_dct = pos_dct.split("\n")
-    # pos_dct = [e.lower() for e in pos_dct]
-
-    # pred2 = [lexcnt(s, pos_dct, neg_dct, negat_dct, lngram) for s in sentences]
-    # pred2 = pd.Series(pred2)
-
-    # BL
-    # negative dictionary (BL)
     neg_dct = ""
     with io.open(path+'lexicon/lexica/'+'bl_negative.csv', "r", encoding = "utf-8", errors = "ignore") as infile:
         for line in infile:
