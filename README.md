@@ -10,17 +10,17 @@ Other than work by Manuel Tonneau, this repository uses data from:
 
 Malo, Pekka & Sinha, Ankur & Takala, Pyry & Korhonen, Pekka & Wallenius, Jyrki. (2013). FinancialPhraseBank-v1.0. 
 
-[http://iborate.com/usd-libor/] (USD libor)
+http://iborate.com/usd-libor/ (USD libor)
 
-[https://mba.tuck.dartmouth.edu/] (Fama/French 5 Factors)
+https://mba.tuck.dartmouth.edu/ (Fama/French 5 Factors)
 
-[https://finance.yahoo.com/] (AAPL and USDX)
+https://finance.yahoo.com/ (AAPL and USDX)
 
 As well as code from: 
 Eliasbeth Bommes (2016)
-[https://github.com/QuantLet/TXT/tree/master/TXTfpblexical] 
+https://github.com/QuantLet/TXT/tree/master/TXTfpblexical 
 
-[https://www.machinelearningplus.com/time-series/vector-autoregression-examples-python/]
+https://www.machinelearningplus.com/time-series/vector-autoregression-examples-python/
 
 
 
