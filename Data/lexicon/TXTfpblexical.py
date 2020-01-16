@@ -1,4 +1,5 @@
 # The following code is adapted from: https://github.com/QuantLet/TXT/tree/master/TXTfpblexical
+# Minor edits where applied
 
 """This module classifies sentiment for BL and LM lexicon."""
 # Please download the Financial Phrase Bank by
@@ -8,13 +9,8 @@
 # Journal of the Association for Information Science and Technology, 2014
 
 # https://www.researchgate.net/publication/251231364_FinancialPhraseBank-v10
-import os
 import io
-import pickle
-import numpy as np
 import pandas as pd
-import nltk
-# nltk.download('punkt')
 
 # functions
 def tokenize(txt):
@@ -135,7 +131,7 @@ def lexcnt(txt, pos_dct, neg_dct, negat_dct, lngram):
     pos = pos_wc - (pos_wcneg) + neg_wcneg
     neg = neg_wc - (neg_wcneg) + pos_wcneg
 
-    if pos > neg: #TODO we can convert this to a continuous value :)
+    if pos > neg: 
         out = [0,0,1]
     elif pos < neg:
         out = [1,0,0]
@@ -186,17 +182,16 @@ def predict_sentences(data, path):
 
     # positive dictionary (BL)
     pos_dct = ""
-    with io.open(path+'lexicon/lexica/'+"bl_positive.csv", "r", encoding = "utf-8", errors = "ignore") as infile:
+    with io.open(path+'lexicon/lexica/'+"bl_positive.csv", "r", encoding="utf-8", errors="ignore") as infile:
         for line in infile:
             pos_dct = pos_dct + line
 
     pos_dct = pos_dct.split("\n")
     pos_dct = [e.lower() for e in pos_dct]
 
-    #print(df2.head())
     pred2 = [lexcnt(s, pos_dct, neg_dct, negat_dct, lngram) for s in sentences]
     pred2 = pd.DataFrame(pred2)
 
     res = pd.concat([data, pred2],axis=1)
-    res.columns = ['idx','article_time', 'text', 'neg','neut','pos']
+    res.columns = ['idx', 'article_time', 'text', 'neg', 'neut', 'pos']
     return res

@@ -46,3 +46,6 @@ Data/lexicon/lexica/bl_positive.csv
 Data/lexicon/lexica/lm_negative.csv
 Data/lexicon/lexica/lm_positive.csv
 ignore.py
+.vscode/.ropeproject/config.py
+.vscode/.ropeproject/objectdb
+var_res.txt
