@@ -3,7 +3,7 @@ This work is based on a Master Thesis by [Manuel Tonneau](https://github.com/man
 
 Hiew, Joshua & Huang, Xin & Mou, Hao & Li, Duan & Wu, Qi & Xu, Yabo. (2019). [BERT-based Financial Sentiment Index and LSTM-based Stock Return Predictability](https://arxiv.org/pdf/1906.09024.pdf). 
 
-You may use this repository as a foundation to develop alternative approaches and additional functionalities.
+You may use this repository as a foundation to develop alternative approaches and additional functionalities. To run this code, execute run.py or edit the file to configure it to your liking. I recommend using a code editor such as Visual Studio Code with the python plugin or any other python capable editor to work on this project. The application also requires a Dataset which is not public and will have to be requested if you work on this topic as your master thesis.
 
 ### Other than work by Manuel Tonneau, this repository uses data from:
 
