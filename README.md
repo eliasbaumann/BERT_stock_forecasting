@@ -3,12 +3,11 @@ This work is based on a Master Thesis by [Manuel Tonneau](https://github.com/man
 
 Hiew, Joshua & Huang, Xin & Mou, Hao & Li, Duan & Wu, Qi & Xu, Yabo. (2019). [BERT-based Financial Sentiment Index and LSTM-based Stock Return Predictability](https://arxiv.org/pdf/1906.09024.pdf). 
 
-
 You may use this repository as a foundation to develop alternative approaches and additional functionalities.
 
-Other than work by Manuel Tonneau, this repository uses data from:
+### Other than work by Manuel Tonneau, this repository uses data from:
 
-Malo, Pekka & Sinha, Ankur & Takala, Pyry & Korhonen, Pekka & Wallenius, Jyrki. (2013). FinancialPhraseBank-v1.0. 
+Malo, Pekka & Sinha, Ankur & Takala, Pyry & Korhonen, Pekka & Wallenius, Jyrki. (2013). [FinancialPhraseBank-v1.0](https://www.researchgate.net/publication/251231364_FinancialPhraseBank-v10). 
 
 http://iborate.com/usd-libor/ (USD libor)
 
@@ -16,7 +15,7 @@ https://mba.tuck.dartmouth.edu/ (Fama/French 5 Factors)
 
 https://finance.yahoo.com/ (AAPL and USDX)
 
-As well as code from: 
+### As well as code from: 
 Eliasbeth Bommes (2016)
 https://github.com/QuantLet/TXT/tree/master/TXTfpblexical 
 
