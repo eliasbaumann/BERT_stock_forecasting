@@ -17,7 +17,6 @@ Data/FiQA_train_task2/Readme_task2.pdf
 Data/FinancialPhraseBank-v1.0/License.txt
 Data/FinancialPhraseBank-v1.0/README.txt
 Data/FinancialPhraseBank-v1.0/Sentences_50Agree.txt
-Data/FinancialPhraseBank-v1.0/Sentences_66Agree.txt
 Data/FinancialPhraseBank-v1.0/Sentences_75Agree.txt
 Data/FinancialPhraseBank-v1.0/Sentences_AllAgree.txt
 __pycache__/preprocessing.cpython-36.pyc

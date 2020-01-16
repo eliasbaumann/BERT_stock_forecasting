@@ -7,6 +7,8 @@ csv.field_size_limit(1000000)
 
 def pre_process_pb(path):
     ''' Clean FinancialPhrasebank data
+        Requires:
+            - Sentences_66Agree.txt
         Creates:
             - Sentences_AllAgree_preprocessed_baseline.csv
             - Sentences_AllAgree_preprocessed.csv
@@ -31,9 +33,9 @@ def clean_5(x):
     return x
 
 def pre_process_news(path):
-    ''' Clean news articles, only use 2018 data
+    ''' Clean news articles, only use 2018 data, choose only AAPL tagged articles
         Requires:
-            - all_upto_2019-08-29.csv
+            - all_upto_2019-08-29.csv (this file is confidential and will only provided if you need it)
         Creates:
             - pre_processed_aapl_sentences.csv
     '''
