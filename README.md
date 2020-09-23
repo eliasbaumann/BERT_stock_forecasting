@@ -32,7 +32,7 @@ https://mba.tuck.dartmouth.edu/ (Fama/French 5 Factors)
 https://finance.yahoo.com/ (AAPL and USDX)
 
 #### Code: 
-Eliasbeth Bommes (2016)
+Elisabeth Bommes (2016)
 https://github.com/QuantLet/TXT/tree/master/TXTfpblexical 
 
 https://www.machinelearningplus.com/time-series/vector-autoregression-examples-python/
